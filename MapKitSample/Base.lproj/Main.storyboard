@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nNE-Tg-sfk">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNE-Tg-sfk">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -73,7 +73,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="詳細画面" id="t0Z-NM-eTU">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="70X-b2-KGQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="70X-b2-KGQ">
+                            <connections>
+                                <action selector="delete" destination="9P7-Od-FZN" id="3qF-nd-n3t"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="postTextField" destination="lhU-aM-ug0" id="1rH-xG-4xj"/>

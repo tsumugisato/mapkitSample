@@ -13,6 +13,7 @@ class AddViewController: UIViewController ,UITextViewDelegate ,UITextFieldDelega
     
     var latitude : Double!
     var longitude : Double!
+
     
     @IBOutlet var postTextField: UITextField!
     @IBOutlet var postTextView: UITextView!
@@ -47,6 +48,5 @@ class AddViewController: UIViewController ,UITextViewDelegate ,UITextFieldDelega
             }
         })
     }
-    
-    
+
 }

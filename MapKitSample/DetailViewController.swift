@@ -19,8 +19,38 @@ class DetailViewController: UIViewController {
         
         postTextField.text = nextText
         postTextView.text = nextTitle
-     
-    }
         
+    }
+    
+    @IBAction func delete() {
+        let query = NCMBQuery(className: "Map")
+        query?.whereKey("text", equalTo: nextText!)
+        print(postTextField.text,"kkkkk")
+        // 削除したいデータに対して、削除を実行
+        query?.findObjectsInBackground({ (result, error) in
+            if error != nil {
+                print(error)
+            } else {
+                print(result,"ppppp")
+                let text = result as! [NCMBObject]
+                // 配列の最初の要素(0番目)を表示
+                print(text,"llllll")
+                let textObject = text[0]
+                textObject.deleteInBackground { (error) in
+                    if error != nil {
+                        // エラーが発生した場合
+                        print(error)
+                    } else {
+                        // 削除に成功した場合、元の画面に戻る(NavigationControllerにおける戻り方)
+                        self.navigationController?.popViewController(animated: true)
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        })
+    }
+                                       
 }
-

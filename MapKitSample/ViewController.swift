@@ -13,7 +13,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet var longPressGesRec: UILongPressGestureRecognizer!
     
-    
     var detailId = [String]()
     var detailsub = [String]()
     var detailImage = [String]()
@@ -27,9 +26,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var nextText : String?
     var nextTitle: String?
     var nextImage: String?
-    
-    
-    
     var new:Bool?
     
     var latitude : Double!
@@ -42,18 +38,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         mapView.delegate = self
-      
         longPressGesRec.delegate = self
-        
-        loadPin()
-        
+        mapView.removeAnnotation(pointAno)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+
+            self.loadPin()
+            print("✨")
+        }
     }
     
     
@@ -103,7 +99,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     }
                     
                 }
-                
             }
             }
         )}
@@ -223,7 +218,5 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
         
     }
-    
-    
     
 }
