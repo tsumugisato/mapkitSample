@@ -11,6 +11,7 @@ class DetailViewController: UIViewController {
     var detailImage = [String]()
     var detailtext = [String]()
     
+    
     @IBOutlet var postTextField : UITextField!
     @IBOutlet var postTextView : UITextView!
     
@@ -42,7 +43,10 @@ class DetailViewController: UIViewController {
                         print(error)
                     } else {
                         // 削除に成功した場合、元の画面に戻る(NavigationControllerにおける戻り方)
-                        self.navigationController?.popViewController(animated: true)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            //ここに処理
+                            self.navigationController?.popViewController(animated: true)
+                        }
                         
                     }
                     

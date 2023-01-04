@@ -24,6 +24,7 @@ class AddViewController: UIViewController ,UITextViewDelegate ,UITextFieldDelega
         
         postTextField.delegate = self
         postTextView.delegate = self
+        postButton.layer.cornerRadius = 20
         
     }
     
@@ -43,9 +44,13 @@ class AddViewController: UIViewController ,UITextViewDelegate ,UITextFieldDelega
             if error != nil{
                 
             }else{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 //成功して戻る
-                  self.navigationController?.popViewController(animated: true)
+//
+//                  self.navigationController?.popViewController(animated: true)
+                }
             }
+                
         })
     }
 
